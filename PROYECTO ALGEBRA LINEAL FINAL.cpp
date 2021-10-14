@@ -791,9 +791,93 @@ void restaMatr()
 		break;
 	}	
 }
+void deter22()
+{
+	system("cls");
+	cout<<"Ingrese los datos de la matriz: "<<endl;
+	for(int x = 0; x < 2; x++)
+	{
+		for(int y = 0; y < 2; y++)
+		{
+			cout<<"Ingrese los numeros de la posicion x: "<<x+1<<" y: "<<y+1<<endl;
+			cin>>matr22A[x][y];
+		}
+	}
+	
+	//MULTIPLICAMOS
+	float result;
+	result = (matr22A[0][0] * matr22A[1][1]) -(matr22A[0][1] * matr22A[1][0]);
+	
+	system("cls");
+	cout<<"La derminante de la Matriz: ";
+	for(int x = 0; x < 2; x++)
+	{
+		for(int y = 0; y < 2; y++)
+		{
+			gotoxy(x+3+x*4, y+3+y*4);
+			cout<<matr22A[x][y];
+			
+		}
+	}
+	cout<<"\n\n\nDeterminante: "<<result<<endl;
+	getch();
+	
+}
+void deter33()
+{
+	system("cls");
+	cout<<"Ingrese los datos de la matriz: "<<endl;
+	for(int x = 0; x < 3; x++)
+	{
+		for(int y = 0; y < 3; y++)
+		{
+			cout<<"Ingrese los numeros de la posicion x: "<<x+1<<" y: "<<y+1<<endl;
+			cin>>matr33A[x][y];
+		}
+	}
+	
+	float result;
+	//MULTIPLICAMOS
+	
+	result = ((matr33A[0][0]*matr33A[1][1]*matr33A[2][2])+(matr33A[0][1]*matr33A[1][2]*matr33A[2][0])+(matr33A[0][2]*matr33A[1][0]*matr33A[2][1]))-((matr33A[0][1]*matr33A[1][0]*matr33A[2][2])+(matr33A[0][0]*matr33A[1][2]*matr33A[2][1])+(matr33A[0][2]*matr33A[1][1]*matr33A[2][0]));
+	
+	system("CLS");	
+	cout<<"La derminante de la Matriz: ";
+	for(int x = 0; x < 3; x++)
+	{
+		for(int y = 0; y < 3; y++)
+		{
+			gotoxy(x+3+x*4, y+3+y*4);
+			cout<<matr33A[x][y];
+			
+		}
+	}
+	cout<<"\n\n\nDeterminante: "<<result<<endl;
+	getch();
+}
 void determinante()
 {
-	
+	int opcion;
+	system("cls");
+	cout<<"Elija el tamaño de su matriz:"<<endl;
+	cout<<"1.2X2\n2.3x3\n3.Exit"<<endl;
+	cin>>opcion;
+	switch(opcion)
+	{
+		case 1:
+			deter22();
+		break;
+		
+		case 2:
+			deter33();
+		break;
+		
+		case 3: break;
+		
+		default: cout<<"Elija una opcion valida"<<endl;
+		getch();
+		break;
+	}while(opcion != 3);
 }
 void operacionesMatrices()
 {
